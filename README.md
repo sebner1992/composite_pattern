@@ -42,7 +42,7 @@ Be prepared to answer questions about the Composite design pattern in the lectur
 
 
 This might help you reading the file:
-```java
+```
 //some basic code to read an xml file. TODO: hardcoded source (filename)
 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 DocumentBuilder db = dbf.newDocumentBuilder();
