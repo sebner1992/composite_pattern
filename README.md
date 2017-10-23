@@ -19,8 +19,8 @@ Note: You may want to take a look at DOM (`javax.xml.parsers.*` and `org.w3c.dom
 for reading the XML file [2]. There are other ways as well (StAX, SAX). 
 However, do not use any classes (e.g. for XML processing) that are not part of the JDK!!
 
->>>>> copy this into a file and read from the file in your application : >>>>>
-```xml
+Copy this into a file and read from the file in your application:
+```
 <list name="root">
  <book name="B1" price="30" isbn="123"/>
  <list name="L1">
@@ -34,15 +34,14 @@ However, do not use any classes (e.g. for XML processing) that are not part of t
   <book name="B4" price="60" isbn="456"/> 
  </list>
 </list>
-```xml
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+```
 
 Design note: XML should be handled at one single place in your implementation. It is not a good design to spread XML specific code in your model class(es).
 
 Be prepared to answer questions about the Composite design pattern in the lecture (advantages, disadvantages, UML diagram, ...)!!!
 
 
->>>>> This might help you reading the file: >>>>>>>>>>>>>>>>>>>>>>>>>>
+This might help you reading the file:
 ```java
 //some basic code to read an xml file. TODO: hardcoded source (filename)
 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -61,7 +60,7 @@ for (int i=0;i<nl.getLength();i++){
   }
 }
 ```
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 
 [1] Design Patterns. Elements of Reusable Object-Oriented Software; Gamma et al.
 [2] https://docs.oracle.com/javase/tutorial/jaxp/dom/readingXML.html
