@@ -19,7 +19,7 @@ Note: You may want to take a look at DOM (`javax.xml.parsers.*` and `org.w3c.dom
 for reading the XML file [2]. There are other ways as well (StAX, SAX). 
 However, do not use any classes (e.g. for XML processing) that are not part of the JDK!!
 
-Copy this into a file and read from the file in your application:
+This is an example input file: (see input.xml)
 ```
 <list name="root">
  <book name="B1" price="30" isbn="123"/>
