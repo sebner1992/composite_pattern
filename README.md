@@ -36,13 +36,29 @@ This is an example input file: (see input.xml)
 </list>
 ```
 
+Your programm shall implement the following interface (`src/assignment4_int/Assignment4.java`):
+
+```java
+package assignment4_int;
+
+public interface Assignment4 {
+   /** loads the xml file or throws an Exception if anything goes wrong */
+   public void loadXml(File input) throws Exception;
+   
+   /** returns the price of an item (cd, book, or list) */
+   public double getPrice(String item);
+}
+```
+
+What shall we do if the `item` in `getPrice` does not exist? Find a good way to handle this!
+
 Design note: XML should be handled at one single place in your implementation. It is not a good design to spread XML specific code in your model class(es).
 
 Be prepared to answer questions about the Composite design pattern in the lecture (advantages, disadvantages, UML diagram, ...)!!!
 
 
 This might help you reading the file:
-```
+```java
 //some basic code to read an xml file. TODO: hardcoded source (filename)
 DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 DocumentBuilder db = dbf.newDocumentBuilder();
@@ -63,6 +79,7 @@ for (int i=0;i<nl.getLength();i++){
 
 
 [1] Design Patterns. Elements of Reusable Object-Oriented Software; Gamma et al.
+
 [2] https://docs.oracle.com/javase/tutorial/jaxp/dom/readingXML.html
 
 Work in teams of two!
