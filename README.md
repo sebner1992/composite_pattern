@@ -77,10 +77,15 @@ for (int i=0;i<nl.getLength();i++){
 }
 ```
 
+*Additionally:*
+1) Carefully read the chapter "Composite pattern" in [1].
+2) Draw a UML class diagram for the assignment (by hand or use a UML tool, e.g. [3]) and push a foto or screenshot as a JPEG to "<baseDirectoryOfTheRepo>/UML.jpg"
 
 [1] Design Patterns. Elements of Reusable Object-Oriented Software; Gamma et al.
 
 [2] https://docs.oracle.com/javase/tutorial/jaxp/dom/readingXML.html
+
+[3] UMLet (http://www.umlet.com/)
 
 Work in teams of two!
 See the PS homepage for Team/Packaging instructions!
