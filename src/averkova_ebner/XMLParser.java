@@ -4,33 +4,47 @@ import java.io.*;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import java.util.Scanner;
-
 import assignment4_int.Assignment4;
 
 public class XMLParser implements Assignment4{
-	private static final String inFileName = "input.xml";
+	private static final String inFileName = "..\\input.xml";
 	private Composite rootList;
 	private double itemPrice;
-	private boolean itemFound = false;
+	private static boolean itemFound = false;
 
 	public static void main(String[] args){
-		XMLParser parser = new XMLParser();
-
-		File input = new File(inFileName);
 		try{
+			XMLParser parser = new XMLParser();
+			File input = new File(inFileName);
 			parser.loadXml(input);
 
 			Scanner in = new Scanner(System.in);
-			System.out.print("input=\"");
-			String item = in.nextLine();
-			in.close();
+			String item;
+			do {
+				System.out.print("input= ");
+				item = in.nextLine();
 
-			System.out.print("\"");
-			System.out.print(" output=\"" + parser.getPrice(item) + "\"");
+				if(item.equals("q")) {
+					System.out.print("Program is terminated!");
+					in.close();
+					return;
+				}
+
+				try {
+					System.out.println("output= " + parser.getPrice(item));
+				}
+				catch(IllegalArgumentException e) {
+					System.out.println(e.getMessage());
+				}				
+			}
+			while(!itemFound);
+			in.close();
 		}
+
 		catch(Exception e){
-			System.out.println(e.getMessage());
+			System.out.println("Exception: " + e.getMessage());
 		}
+
 	}
 
 	/** loads the xml file or throws an Exception if anything goes wrong */
@@ -47,7 +61,6 @@ public class XMLParser implements Assignment4{
 			populateItemList(nl, rootList);
 		}
 		catch(Exception e){
-			System.out.println(e.getMessage());
 			throw e;
 		}
 	}
@@ -55,22 +68,23 @@ public class XMLParser implements Assignment4{
 	/** returns the price of an item (cd, book, or list) */
 	public double getPrice(String item){
 		if(item.equals(rootList.getName())) {
+			itemFound = true;
 			return rootList.obtainPrice();
 		}
-		
-        //if the item in getPrice does not exist
+
+		//if the item in getPrice does not exist
 		if(!findItem(item, rootList)) {
-			throw new IllegalArgumentException("Item \"" + item + "\" not found!"); 
+			throw new IllegalArgumentException("Item \"" + item + "\" not found! Try another item or press 'q' to quit."); 
 		}
 
 		return itemPrice;
 	}
 
 	private boolean findItem(String item, Composite list){
-   		for(Item i : list.getItemList()) {
+		for(Item i : list.getItemList()) {
 			if(i.getName().equals(item)) {
 				itemPrice = i.obtainPrice();
-                itemFound = true;
+				itemFound = true;
 				return itemFound;
 			}
 			if(i instanceof Composite) {
@@ -122,5 +136,4 @@ public class XMLParser implements Assignment4{
 		}
 	}
 }
-
 
