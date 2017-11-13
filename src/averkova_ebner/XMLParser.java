@@ -56,8 +56,7 @@ public class XMLParser implements Assignment4 {
 
 			NodeList nl = root.getChildNodes();
 
-			rootList = new Composite(root.getAttribute("name"));// root
-																// composite
+			rootList = new Composite(root.getAttribute("name"));// root composite
 			populateItemList(nl, rootList);
 		} catch (Exception e) {
 			throw e;
